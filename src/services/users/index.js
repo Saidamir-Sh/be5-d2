@@ -14,18 +14,28 @@ import express from "express";
 const usersRouter = express.Router()
 
 // 1.
-usersRouter.post('/')
+usersRouter.post('/', (req, res) => {
+    res.send("Hello, I am post method route")
+})
 
 // 2.
-usersRouter.get('/')
+usersRouter.get('/', (req, res) => {
+    res.send("Hello, I am get method route")
+})
 
 // 3.
-usersRouter.get('/:userID')
+usersRouter.get('/:userID', (req, res) => {
+    res.send("Hello World")
+})
 
 // 4.
-usersRouter.put('/:userID')
+usersRouter.put('/:userID', (req, res) => {
+    res.send("Hello World")
+})
 
 // 5.
-usersRouter.delete('/:userID')
+usersRouter.delete('/:userID', (req, res) => {
+    res.send("Hello World")
+})
 
 export default usersRouter
