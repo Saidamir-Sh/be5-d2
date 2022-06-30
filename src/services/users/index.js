@@ -10,8 +10,17 @@
 // 5. DELETE  ---> DELETE http://localhost:3001/users/:userID 
 
 import express from "express";
+import fs from 'fs'
+import { fileURLToPath } from "url";
+import { dirname, join } from "path";
 
 const usersRouter = express.Router()
+
+// current file path
+const currentFilePath = fileURLToPath(import.meta.url)
+
+// from currentfilePath I can obtain the parent folders path 
+const currentFolderPath = dirname(currentFilePath)
 
 // 1.
 usersRouter.post('/', (req, res) => {
@@ -20,7 +29,7 @@ usersRouter.post('/', (req, res) => {
 
 // 2.
 usersRouter.get('/', (req, res) => {
-    res.send("Hello, I am get method route")
+    res.send({message : "Hello, I am get method route"})
 })
 
 // 3.
