@@ -22,6 +22,9 @@ const currentFilePath = fileURLToPath(import.meta.url)
 // from currentfilePath I can obtain the parent folders path 
 const currentFolderPath = dirname(currentFilePath)
 
+// I can concatenate currentFolderPath with users.json
+const usersJSONPath = join(currentFolderPath, "users.json")
+
 // 1.
 usersRouter.post('/', (req, res) => {
     res.send("Hello, I am post method route")
