@@ -28,6 +28,16 @@ authorRouter.get('/', (req, res)  => {
     res.send(authors)
 })
 
+authorRouter.get('/', (req, res) => {
+    console.log("Query: " , req.query)
+    if(req.query && req.query.category) {
+        const adminAuth = authors.filter(auth => auth.admin === req.query.category)
+        res.send(adminAuth) 
+    } else {
+        res.send(authors)
+    }
+})
+
 authorRouter.get('/:authorID', (req, res) => {
     const authors = JSON.parse(fs.readFileSync(authorsJSON))
     const authorID = req.params.authorID
