@@ -45,9 +45,9 @@ authorRouter.post('/', (req, res) => {
 
 authorRouter.put('/:authorID', (req, res) => {
     const authors = JSON.parse(fs.readFileSync(authorsJSON))
-    const index = authors.findIndex(author => author.id === req.params.authorId)
-    const updatedUser = { ...users[index], ...req.body }
-    users[index] = updatedUser
+    const index = authors.findIndex(author => author.id === req.params.authorID)
+    const updatedAuthor = { ...authors[index], ...req.body }
+    authors[index] = updatedAuthor
 })
 
 authorRouter.delete('/:authorID', (req, res) => {
