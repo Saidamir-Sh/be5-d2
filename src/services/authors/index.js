@@ -22,13 +22,17 @@ const currentFolderPath = dirname(currentFilePath)
 // concatenating currentFodlerPath with authorsJSON file
 const authorsJSON = join(currentFolderPath, "authors.json")
 
+
 authorRouter.get('/', (req, res)  => {
     const authors = JSON.parse(fs.readFileSync(authorsJSON))
     res.send(authors)
 })
 
 authorRouter.get('/:authorID', (req, res) => {
-    res.send('Hello Author ID')
+    const authors = JSON.parse(fs.readFileSync(authorsJSON))
+    const authorID = req.params.authorID
+    const selectedAuthor = authors.find(author => author.id === authorID)
+    res.send(selectedAuthor)
 })
 
 authorRouter.post('/', (req, res) => {
