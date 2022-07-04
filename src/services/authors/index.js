@@ -1,4 +1,7 @@
 import express from 'express'
+import fs from 'fs'
+import { fileURLToPath } from 'url'
+import { dirname, join } from 'path'
 
 // 1. READ  ---> GET http://localhost:3001/authors (+body)
 // 2. READ  ---> GET http://localhost:3001/authors/:authorID (+optional query params)
@@ -9,7 +12,14 @@ import express from 'express'
 const authorRouter = express.Router()
 
 
+// current file path
+const currentFilePath = fileURLToPath(import.meta.url)
 
+// parent folder derived from currentFilePath
+const currentFolderPath = dirname(currentFilePath)
+
+// concatenating currentFodlerPath with authorsJSON file
+const authorsJSONPath = join(currentFolderPath, "authors.json")
 
 authorRouter.get('/', (req, res)  => {
     res.send({message: 'I am author router'})
