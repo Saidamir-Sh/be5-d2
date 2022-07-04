@@ -36,7 +36,11 @@ authorRouter.get('/:authorID', (req, res) => {
 })
 
 authorRouter.post('/', (req, res) => {
-    res.send('I will add new author')
+    const authors = JSON.parse(fs.readFileSync(authorsJSON))
+    const newAuthor = {...req.body, id: uniqid()}
+    authors.push(newAuthor)
+    fs.writeFileSync(authorsJSON, JSON.stringify(authors))
+    res.status(201).send(newAuthor)
 })
 
 authorRouter.put('/:authorID', (req, res) => {
