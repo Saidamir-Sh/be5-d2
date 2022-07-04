@@ -13,7 +13,8 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.18.1",
-    "express-list-endpoints": "^6.0.0"
+    "express-list-endpoints": "^6.0.0",
+    "uniqid": "^5.4.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.18"
