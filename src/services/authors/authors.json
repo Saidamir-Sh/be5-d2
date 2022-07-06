@@ -6,5 +6,13 @@
         "email": "johntest@gmail.com",
         "dateOfBirth": "10.04.1978",
         "avatar": "https://ui-avatars.com/api/?name=John+Doe"
+    },
+    {
+        "name": "John",
+        "surname": "Depp",
+        "id": "1a2d4sdf1a2fsdv",
+        "email": "johnDepptest@gmail.com",
+        "dateOfBirth": "10.04.1978",
+        "avatar": "https://ui-avatars.com/api/?name=John+Doe"
     }
 ]
